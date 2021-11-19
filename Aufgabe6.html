@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabe 6</title>
+    <style>
+        .flex{
+            display: flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .flex div{
+            text-align:center;
+            margin: 10px;
+        }
+        .flex-item-1{
+            flex:1; /** 1/4 **/
+            background-color: lightgrey;
+            padding:10px;
+        }
+        .flex-item-2{
+            flex:2; /** 2/4 **/
+            background-color: red;
+            padding:10px;
+        }
+        .flex-item-3{
+                flex: 1;
+                background-color:lightseagreen;
+                padding: 5px 50px;
+        }
+        /** Responsive Webdesign hat das Ziel, die Webseite auf jede Auflösung anzupassen. Z.B. Handy, Tablet, Laptop, PC**/
+        /** Mit Hilfe von CSS Media Query können wir neue CSS Regeln für ein Endgerät schreiben. **/
+        @media(max-width: 580px){ /** Media Query für alle Auflösungen KLEINER als 580px = Handy/Smartphone**/
+            body{
+                background-color: purple;
+            }
+            .flex{
+                flex-direction: column;
+            }
+            img{
+                width: 100%;
+                /** display: none; **/
+            }
+            .flex-item-1, .flex-item-2{
+                width:100%;
+                font-size: 2rem;
+            }
+            a{
+                text-decoration: none;
+                font-size: 2rem;
+                margin: 10px auto;
+                background-color: skyblue;
+            }
+        }
+        @media (min-width: 581px) and (max-width:1024px){ /** Media Query für alle Auflösungen GRÖßER als 581px und KLEINER als 1024px = Tablet**/
+            body{
+                background-color: blue
+            }
+            .flex{
+                flex-direction: column-reverse;
+            }
+            .flex-item-1, .flex-item-2{
+                width: 90%;
+                font-size: 1.5rem;
+            }
+            a{
+                display:none;
+            }
+        } 
+        @media(min-width:1025px){ /** Media Query für alle Auflösungen GRÖßER als 1025px = Desktop**/
+            body{
+                background-color: seagreen;
+            }
+            a{
+                display:none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--<a href="kontakt.html">Kontakt</a>-->
+    <a href="#last">Link zum letzten Element</a>
+    <div class="flex"> <!-- Eltern Elemente -->
+        <div class="flex-item-1">Ein Element</div> <!-- Kind Elemente-->
+        <div class="flex-item-2">Ein Element</div> <!-- Kind Elemente-->
+        <div class="flex-item-1">Ein Element</div> <!-- Kind Elemente-->
+    </div>
+    <div class="flex"> <!-- Eltern Elemente -->
+        <div class="flex-item-1">Ein Element</div> <!-- Kind Elemente-->
+        <div class="flex-item-1">Ein Element</div> <!-- Kind Elemente-->
+    </div>
+    <div> 
+    <div class="flex"> <!-- Eltern Elemente -->
+        <div class="flex-item-1"> <!-- Kind Elemente-->
+            <div class="flex">
+                <div class="flex-item-3"> <!-- Kind Elemente-->
+                    <img src="haribo.png">
+                </div>
+                <div class="flex-item-3">Informationen</div> <!-- Kind Elemente-->
+            </div>
+        </div>
+        <div id="last" class="flex-item-1"> Ein Element</div> <!-- Kind Elemente-->
+    </div>
+</body>
+</html>
